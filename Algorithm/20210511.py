@@ -45,16 +45,33 @@ print('우박수의 길이 : ', maxlen)
 
 # Q. 콜라츠 수열의 길이가 500보다 큰 첫번째 자연수는?
 
-# n = 1
-# while True:
-#     res = len(collatz(n))
-#     print(res)
-#     if res > 500 :
-#         print(n)
-#         break
-#     else:
-#         n += 1
-# 500번을 넘지 못한다. 없음
+n = 0
+
+while True:
+    n += 1
+    halestone = collatz(n)
+    if len(halestone) > 500:
+        break
+
+print(len(halestone))  # 길이 509
+print('길이가 500보다 큰 첫번째 자연수 :', n)  # 626331
+
+# Q. 콜라츠 수열의 길이가 500보다 큰 열번째 자연수의 콜라츠 수열의 길이는?
+n = 0
+c_list = []
+
+while True:
+    n += 1
+    halestone = collatz(n)
+    if len(halestone) > 500:
+        c_list.append(len(halestone))
+
+    if len(c_list) == 10:
+        break
+
+print(c_list)
+print('길이가 500보다 큰 열번째 자연수의 콜라츠 수열 길이 :', c_list[-1])
+
 #------------------------------------------------------------
 # 로마에서 아라비아까지 : 로마 숫자를 아라비아 숫자로 바꾸기
 
